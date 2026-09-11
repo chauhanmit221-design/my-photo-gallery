@@ -12,7 +12,6 @@ class MyServer(SimpleHTTPRequestHandler):
         if self.path == "/api/photos":
 
             extensions = (".jpg", ".jpeg", ".png", ".gif", ".webp")
-
             photos = []
 
             if os.path.exists(IMAGE_FOLDER):
@@ -31,9 +30,11 @@ class MyServer(SimpleHTTPRequestHandler):
             super().do_GET()
 
 
-server = HTTPServer(("localhost", 8000), MyServer)
+PORT = int(os.environ.get("PORT", 8000))
+
+server = HTTPServer(("0.0.0.0", PORT), MyServer)
 
 print("Photo Gallery server is running!")
-print("Open: http://localhost:8000")
+print("Port:", PORT)
 
 server.serve_forever()
