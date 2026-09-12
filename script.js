@@ -1,4 +1,4 @@
-fetch("http://localhost:8000/api/photos")
+fetch("/api/photos")
     .then(response => response.json())
     .then(photos => {
 
@@ -8,7 +8,7 @@ fetch("http://localhost:8000/api/photos")
 
             const img = document.createElement("img");
 
-            img.src = "http://localhost:8000" + photo;
+            img.src = photo;
 
             img.alt = "My Photo";
 
