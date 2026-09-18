@@ -4,108 +4,226 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background: #1b1412;
-    color: white;
-    min-height: 100vh;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Hero Section */
+body {
+    background: #0a0a0a;
+    color: #f5f5f5;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+/* HEADER */
+
+.site-header {
+    width: 100%;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #222;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.header-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header-link:hover {
+    color: white;
+}
+
+
+/* HERO */
+
 .hero {
-    text-align: center;
-    padding: 55px 20px 35px;
+    min-height: 80vh;
+    padding: 120px 8% 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eyebrow {
+    color: #888;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
 }
 
 .hero h1 {
-    font-size: 52px;
-    margin-bottom: 12px;
-    letter-spacing: 1px;
+    font-size: clamp(48px, 9vw, 110px);
+    line-height: 0.95;
+    font-weight: 600;
+    letter-spacing: -4px;
 }
 
-.hero p {
-    font-size: 18px;
-    color: #d6d6d6;
+.hero h1 span {
+    color: #777;
 }
 
-/* Gallery Heading */
-body > h2 {
-    text-align: center;
-    font-size: 32px;
-    margin-top: 20px;
-    margin-bottom: 8px;
+.hero-text {
+    color: #aaa;
+    margin-top: 30px;
+    font-size: 17px;
 }
 
-body > p {
-    text-align: center;
-    color: #cfcfcf;
-    margin-bottom: 35px;
+.hero-button {
+    display: inline-block;
+    width: fit-content;
+    margin-top: 35px;
+    padding: 13px 24px;
+    border: 1px solid #555;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-/* Gallery */
+.hero-button:hover {
+    background: white;
+    color: black;
+}
+
+
+/* GALLERY */
+
+.gallery-section {
+    padding: 80px 6%;
+}
+
+.section-heading {
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 500;
+    letter-spacing: -2px;
+}
+
+
+/* AUTOMATIC PHOTO GRID */
+
 .gallery {
-    width: 90%;
-    max-width: 1100px;
-    margin: 0 auto 60px;
-
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
 }
 
-/* Photos */
 .gallery img {
     width: 100%;
     height: 420px;
-
     object-fit: cover;
     display: block;
-
-    border-radius: 18px;
-
+    border-radius: 8px;
     cursor: pointer;
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease,
-        filter 0.3s ease;
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-/* Hover Effect */
 .gallery img:hover {
-    transform: scale(1.03);
-    filter: brightness(1.08);
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, 0.5);
+    transform: scale(1.025);
+    opacity: 0.85;
 }
 
-/* Mobile */
-@media (max-width: 700px) {
 
-    .hero {
-        padding: 40px 15px 25px;
-    }
+/* FOOTER */
 
-    .hero h1 {
-        font-size: 38px;
-    }
+footer {
+    margin-top: 80px;
+    padding: 35px 6%;
+    border-top: 1px solid #222;
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 13px;
+}
 
-    .hero p {
-        font-size: 16px;
-    }
+footer a {
+    color: #aaa;
+    text-decoration: none;
+}
 
-    body > h2 {
-        font-size: 27px;
-    }
+footer a:hover {
+    color: white;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
 
     .gallery {
-        width: 92%;
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .gallery img {
         height: 380px;
+    }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 18px 5%;
+    }
+
+    .logo {
+        font-size: 12px;
+        letter-spacing: 2px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 90px 7% 70px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 15px;
+    }
+
+    .gallery-section {
+        padding: 60px 5%;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .gallery img {
+        height: 480px;
+    }
+
+    footer {
+        padding: 28px 5%;
+        flex-direction: column;
+        gap: 10px;
     }
 }
